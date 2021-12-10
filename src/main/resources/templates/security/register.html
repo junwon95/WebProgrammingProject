@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head th:replace="~{layout/layout :: layout (~{::body})}">
+</head>
+<body>
+<form th:object="${member}" th:action="@{/register}" method="post">
+    <div class="container">
+        <h2>회원 가입</h2>
+        <div>
+            <label> 아이디: <input type="text" th:field="*{username}"/> </label>
+            <p th:if="${#fields.hasErrors('username')}" class="label-danger" th:errors="*{username}">username err</p>
+        </div>
+        <div>
+            <label> 비밀번호: <input type="password" th:field="*{password}"/> </label>
+            <p th:if="${#fields.hasErrors('password')}" class="label-danger" th:errors="*{password}">password err</p>
+        </div>
+        <div>
+            <label> 이메일: <input type="text" th:field="*{email}"/> </label>
+            <p th:if="${#fields.hasErrors('email')}" class="label-danger" th:errors="*{email}">email err</p>
+        </div>
+        <br/>
+        <div>
+            <label> 사용자 유형 </label>
+            <select th:field="*{role}">
+                <option th:value="VET" th:text="수의사"/>
+                <option th:value="USER" th:text="펫주인"/>
+            </select>
+        </div>
+        <br/>
+        <button type="submit">가입하기</button><br>
+    </div>
+</form>
+</body>
+</html>
+
+<!DOCTYPE html>
+

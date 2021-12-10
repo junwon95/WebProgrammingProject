@@ -1,0 +1,13 @@
+#Gmail SMTP
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ssmmttpp123@gmail.com
+    password: smtponly123
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true

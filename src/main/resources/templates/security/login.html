@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head th:replace="~{layout/layout :: layout (~{::body})}">
+</head>
+<body>
+
+<form th:action="@{/signin}" method="post">
+    <div class="container">
+        <h2>로그인</h2>
+        <div>
+            <p th:if="${param.error}" class="label-danger">아이디 또는 비밀번호가 잘못되었습니다.</p>
+            <p th:if="${param.logout}" class="label-danger">로그아웃 하셨습니다.</p>
+        </div>
+        <label><b>아이디</b></label><br>
+        <input type="text" placeholder="아이디 입력" name="username" required><br>
+        <label><b>비밀번호</b></label><br>
+        <input type="password" placeholder="비밀번호 입력" name="password" required><br>
+
+        <button type="submit">로그인</button><br>
+        <a th:href="@{/findPassword}" method="get">비밀번호 찾기</a>
+
+    </div>
+</form>
+
+<!--  Thymeleaf automatically assigns token value when @EnableWebSecurity annotation is present on the SecurityConfig class-->
+<!--  NOTE: "th:action" must be used in <form/> for this automatic feature to work -->
+<!--  ***  -->
+<!--  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>-->
+</body>
+</html>
+
+<!DOCTYPE html>

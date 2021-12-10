@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head  th:replace="~{layout/layout :: layout (~{::body})}">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class="table table-striped" th:object="${owner}">
+    <tr>
+        <th>Name</th>
+        <td th:text="*{name}"></td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org">
+<head  th:replace="~{layout/layout :: layout (~{::body})}">
+</head>
+<body>
+<table class="table table-striped" th:object="${member}">
+  <tr>
+    <th>Username</th>
+    <td th:text="*{username}"></td>
+  </tr>
+  <tr>
+    <th>Email</th>
+    <td th:text="*{email}"></td>
+  </tr>
+  <tr>
+    <th>Role</th>
+    <td th:text="*{Role}"></td>
+  </tr>
+</table>
+<form th:object="${member}" th:action="@{/changePassword}" method="get">
+  <input type="hidden" class="form-control" th:field="*{username}"/>
+  <div><input type="submit" class="btn btn-default" value="Change Password"/></div>
+</form>
+
+</body>
+</html>

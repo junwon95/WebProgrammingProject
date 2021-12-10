@@ -1,0 +1,172 @@
+<!doctype html>
+<html xmlns:th="https://www.thymeleaf.org"
+      th:fragment="layout (template)"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8">
+
+    <style>
+        .styled {
+            margin-left:10px;
+            margin-top: 7.5px;
+            width: 100px;
+            border: 0;
+            line-height: 2.5;
+            padding: 0 20px;
+            font-size: 1rem;
+            text-align: center;
+            color: #fff;
+            background-color: rgba(0, 153, 255, 1);
+        }
+        .styled:hover {
+            background-color: rgba(0, 204, 255, 1);
+        }
+        .styled:active {
+            box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+            inset 2px 2px 3px rgba(0, 0, 0, .6);
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        li {
+            float: left;
+        }
+        li .shortcut {
+            display: block;
+            text-align: center;
+            height:105px;
+        }
+        li .menu {
+            display: inline-block;
+            color: black;
+            text-align: center;
+            text-shadow: gray;
+            font-size: 2rem;
+            padding: 40px 50px;
+            text-decoration: none;
+        }
+        li .menu-active {
+            background-color: rgba(0, 204, 255, 1);
+        }
+        li .dropbtn {
+            display: inline-block;
+            color: black;
+            text-align: center;
+            text-shadow: gray;
+            font-size: 2rem;
+            padding: 40px 50px;
+            text-decoration: none;
+        }
+        li a:hover, .dropdown:hover .dropbtn {
+            background-color: rgba(0, 204, 255, 1);
+        }
+        li.dropdown {
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {background-color: #f1f1f1;}
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+    </style>
+
+</head>
+
+<body>
+<style>
+    p .label-danger {
+        font-family: Arial, Helvetica, sans-serif;
+        color:red;
+    }
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    input[type=text], input[type=password] {
+        width: 25%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+    button {
+        background-color: #04AA6D;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 25%;
+    }
+    button:hover {
+        opacity: 0.8;
+    }
+    .container {
+        padding: 16px;
+    }
+</style>
+
+<ul>
+
+    <li class="img"><a href="/" class="shortcut"><img src="/favicon.png" width="109px" height="109px"/></a></li>
+    <li><a href="/">의료진 보기</a></li>
+    <div sec:authorize="hasRole('USER')">
+        <li><a href="#" class="menu">예약 조회</a></li>
+        <li><a href="#" class="menu">진료 예약</a></li>
+        <li><a href="#" class="menu">진료 기록</a></li>
+        <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">나의 펫</a>
+        <div class="dropdown-content">
+            <a href="#">펫 목록</a>
+            <a href="#">펫 추가</a>
+        </div>
+        </li>
+    </div>
+    <div sec:authorize="hasRole('VET')">
+        <li><a href="#" class="menu">예약 조회</a></li>
+        <li><a href="#" class="menu">진료 기록</a></li>
+        <li><a href="#" class="menu">프로필</a></li>
+    </div>
+
+    <div sec:authorize="${!isAuthenticated()}" style="float:right;">
+        <form method="GET" th:action="@{/signin}">
+            <button type="submit" class="styled">로그인</button>
+        </form>
+        <form method="GET" th:action="@{/register}">
+            <button type="submit" class="styled">회원가입</button>
+        </form>
+    </div>
+
+    <div sec:authorize="${isAuthenticated()}">
+        <form method="POST" th:action="@{/logout}">
+            <button type="submit" class="styled">로그아웃</button>
+        </form>
+<!--            <form method="GET" th:action="@{/profile}">-->
+<!--                <button type="submit" class="styled">Profile</button>-->
+<!--            </form>-->
+    </div>
+</ul>
+
+</body>
+
+</html>

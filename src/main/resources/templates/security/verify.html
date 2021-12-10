@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head th:replace="~{layout/layout :: layout (~{::body})}">
+</head>
+<body>
+
+<form th:object="${verificationDto}" th:action="@{/verify}" method="post">
+    <div class="container">
+        <h2>회원 가입</h2>
+        <label>입력하신 메일로 인증 번호가 발송되었습니다.</label>
+        <div>
+            <label> 인증 번호: <input type="password" th:field="*{inputCode}"/> </label>
+            <input type="hidden" class="form-control" th:field="*{verificationCode}"/>
+            <input type="hidden" class="form-control" th:field="*{username}"/>
+            <input type="hidden" class="form-control" th:field="*{password}"/>
+            <input type="hidden" class="form-control" th:field="*{email}"/>
+            <input type="hidden" class="form-control" th:field="*{role}"/>
+        </div>
+        <br/>
+        <button type="submit">인증하기</button><br>
+    </div>
+</form>
+</body>
+</html>
+
+<!DOCTYPE html>
+
