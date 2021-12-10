@@ -50,9 +50,6 @@
             padding: 40px 50px;
             text-decoration: none;
         }
-        li .menu-active {
-            background-color: rgba(0, 204, 255, 1);
-        }
         li .dropbtn {
             display: inline-block;
             color: black;
@@ -129,7 +126,7 @@
 <ul>
 
     <li class="img"><a href="/" class="shortcut"><img src="/favicon.png" width="109px" height="109px"/></a></li>
-    <li><a href="/">의료진 보기</a></li>
+    <li><a href="/" class="menu">의료진 보기</a></li>
     <div sec:authorize="hasRole('USER')">
         <li><a href="#" class="menu">예약 조회</a></li>
         <li><a href="#" class="menu">진료 예약</a></li>
@@ -145,7 +142,7 @@
     <div sec:authorize="hasRole('VET')">
         <li><a href="#" class="menu">예약 조회</a></li>
         <li><a href="#" class="menu">진료 기록</a></li>
-        <li><a href="#" class="menu">프로필</a></li>
+        <li><a href="/profile" class="menu">프로필</a></li>
     </div>
 
     <div sec:authorize="${!isAuthenticated()}" style="float:right;">

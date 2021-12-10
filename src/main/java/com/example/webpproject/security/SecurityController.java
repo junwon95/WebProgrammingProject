@@ -6,8 +6,6 @@ import com.example.webpproject.dto.VerificationDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -150,26 +148,6 @@ public class SecurityController {
 	public String accessDeniedForm(Map<String, Object> model) {
 		model.put("message", "Access Denied");
 		return "/error";
-	}
-
-	@GetMapping("/profile")
-	public String profileForm(Map<String, Object> model) {
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-		// petclinic member
-		if (principal instanceof UserDetails) {
-			String username = ((UserDetails) principal).getUsername();
-			Member member = memberRepository.findByUsername(username);
-			model.put("member", member);
-			return "security/profile";
-		}
-		// OAUTH member
-		else {
-			// TODO: link OAUTH with Members
-			// redirect to custon
-			return "redirect:";
-		}
-
 	}
 
 	@GetMapping("/changePassword")

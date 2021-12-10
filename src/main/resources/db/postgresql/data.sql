@@ -2,8 +2,7 @@ INSERT INTO specialties VALUES (1, 'radiology') ON CONFLICT (id) DO NOTHING;
 INSERT INTO specialties VALUES (2, 'surgery') ON CONFLICT (id) DO NOTHING;
 INSERT INTO specialties VALUES (3, 'dentistry') ON CONFLICT (id) DO NOTHING;
 
-INSERT INTO vets VALUES (1, 'James', 1) ON CONFLICT (id) DO NOTHING;
-INSERT INTO vets VALUES (2, 'Helen', 2) ON CONFLICT (id) DO NOTHING;
+INSERT INTO vets VALUES (1, 'James','',1, 1) ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO owners VALUES (1, 'George') ON CONFLICT (id) DO NOTHING;
 INSERT INTO members VALUES (1, 'test', '123', 'junwonseo95@gmail.com', 'VET') ON CONFLICT (id) DO NOTHING;

@@ -8,6 +8,8 @@ CREATE TABLE IF NOT EXISTS vets
 (
     id           SERIAL PRIMARY KEY,
     name         VARCHAR(30),
+    description  VARCHAR(255),
+    member_id    integer NOT NULL,
     specialty_id integer NOT NULL,
     FOREIGN KEY (specialty_id) REFERENCES specialties (id) ON DELETE CASCADE
 );
