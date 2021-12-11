@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org">
+<head th:replace="~{layout/layout :: layout (~{::body})}">
+</head>
+<body>
+
+<h2>예약 목록</h2>
+
+<table width="300px" th:object="${schedules}">
+    <thead>
+    <tr>
+        <th>주인  </th>
+        <th>펫  </th>
+        <th>사유 </th>
+        <th>날짜 </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="schedule : ${schedules}">
+        <td align="center" th:text="${schedule.getOwnerName()}"/>
+        <td align="center" th:text="${schedule.getPetName()}"/>
+        <td align="center" th:text="${schedule.getDescription()}"/>
+        <td align="center" th:text="${schedule.getDate()}"/>
+    </tr>
+
+    </tbody>
+</table>
+
+</body>
+</html>

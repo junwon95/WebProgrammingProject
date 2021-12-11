@@ -34,7 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				// permit resources
 				.antMatchers("/resources/**").permitAll()
 				// permit pages (main page, search, see list of vets)
-				.antMatchers("/*", "/owners/find", "/findPassword").permitAll()
+				.antMatchers("/*", "/vetsInfo", "/findPassword").permitAll()
 				// set authentication corresponding to role ADMIN
 				.antMatchers("/owners/*/edit", "/owners/*/delete").hasRole("VET")
 				// all other requests are authenticated

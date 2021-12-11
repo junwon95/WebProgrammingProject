@@ -9,4 +9,4 @@ INSERT INTO members VALUES (1, 'test', '123', 'junwonseo95@gmail.com', 'VET') ON
 
 INSERT INTO pets VALUES (1, 'Leo', '2000-09-07', 'cat', 1) ON CONFLICT (id) DO NOTHING;
 
-INSERT INTO visits VALUES (1, 1, '2010-03-04', 'rabies shot') ON CONFLICT (id) DO NOTHING;
+INSERT INTO visits VALUES (1, 1, 1, '2010-03-04', 'rabies shot') ON CONFLICT (id) DO NOTHING;

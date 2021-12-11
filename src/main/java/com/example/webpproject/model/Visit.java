@@ -28,6 +28,9 @@ public class Visit extends BaseEntity {
     @Column(name = "pet_id")
     private Integer petId;
 
+    @Column(name = "vet_id")
+    private Integer vetId;
+
     @Transient
     private List<Treatment> treatments = new ArrayList<>();
 

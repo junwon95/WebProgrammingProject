@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org">
+<head th:replace="~{layout/layout :: layout (~{::body})}">
+</head>
+<body>
+
+<h2>Vets</h2>
+
+<table width="300px" th:object="${vets}">
+    <thead>
+    <tr>
+        <th>이름 </th>
+        <th>전문 분야 </th>
+        <th>소개 글 </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="vet : ${vets}">
+        <td align="center" th:text="${vet.name}"/>
+        <td align="center" th:text="${vet.specialty.name}"/>
+        <td align="center" th:text="${vet.description}"/>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

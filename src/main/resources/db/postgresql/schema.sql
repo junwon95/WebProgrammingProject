@@ -34,9 +34,11 @@ CREATE TABLE IF NOT EXISTS visits
 (
     id          SERIAL PRIMARY KEY,
     pet_id      integer NOT NULL,
+    vet_id      integer NOT NULL,
     visit_date  DATE,
     description VARCHAR(255),
-    FOREIGN KEY (pet_id) REFERENCES pets (id) ON DELETE CASCADE
+    FOREIGN KEY (pet_id) REFERENCES pets (id) ON DELETE CASCADE,
+    FOREIGN KEY (vet_id) REFERENCES vets (id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS treatments
