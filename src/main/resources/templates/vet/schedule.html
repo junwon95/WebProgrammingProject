@@ -14,6 +14,7 @@
         <th>펫  </th>
         <th>사유 </th>
         <th>날짜 </th>
+        <th>처방 </th>
     </tr>
     </thead>
     <tbody>
@@ -22,6 +23,14 @@
         <td align="center" th:text="${schedule.getPetName()}"/>
         <td align="center" th:text="${schedule.getDescription()}"/>
         <td align="center" th:text="${schedule.getDate()}"/>
+        <td>
+<!--            <form id="visitId" th:action="@{/treatment/new}" method="post">-->
+<!--                <input type="hidden" th:field="*{visitId}" id="visitId">-->
+<!--                <button type="submit">등록</button>-->
+<!--            </form>-->
+
+        </td>
+
     </tr>
 
     </tbody>

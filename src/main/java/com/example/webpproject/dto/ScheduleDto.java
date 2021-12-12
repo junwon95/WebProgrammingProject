@@ -12,4 +12,7 @@ public class ScheduleDto {
     private String petName;
     private LocalDate date;
     private String description;
+    private String prescription;
+    private Integer visitId;
+
 }

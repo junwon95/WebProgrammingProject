@@ -42,7 +42,6 @@ public class Visit extends BaseEntity {
         this.treatments = new ArrayList<>(treatments);
     }
 
-    @OneToOne
     @Transient
     private boolean isTreated = false;
 
