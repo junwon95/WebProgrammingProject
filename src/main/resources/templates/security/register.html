@@ -7,15 +7,18 @@
     <div class="container">
         <h2>회원 가입</h2>
         <div>
-            <label> 아이디: <input type="text" th:field="*{username}"/> </label>
+            <label> 아이디: <input type="text" th:field="*{username}" required/> </label>
             <p th:if="${#fields.hasErrors('username')}" class="label-danger" th:errors="*{username}">username err</p>
         </div>
         <div>
-            <label> 비밀번호: <input type="password" th:field="*{password}"/> </label>
+            <label> 비밀번호: <input type="password" th:field="*{password}" required/> </label>
             <p th:if="${#fields.hasErrors('password')}" class="label-danger" th:errors="*{password}">password err</p>
         </div>
+<!--        <div th:object="${registerDto}">-->
+<!--            <label> 이름: <input type="text" th:field="*{name}" required/> </label>-->
+<!--        </div>-->
         <div>
-            <label> 이메일: <input type="text" th:field="*{email}"/> </label>
+            <label> 이메일: <input type="text" th:field="*{email}" required/> </label>
             <p th:if="${#fields.hasErrors('email')}" class="label-danger" th:errors="*{email}">email err</p>
         </div>
         <br/>

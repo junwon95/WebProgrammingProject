@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org">
+<head th:replace="~{layout/layout :: layout (~{::body})}">
+</head>
+<body>
+
+<h2>펫 목록</h2>
+
+<table width="300px" th:object="${pets}">
+    <thead>
+    <tr>
+        <th>펫 이름 </th>
+        <th>생일 </th>
+        <th>종류 </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="pet : ${pets}">
+        <td align="center" th:text="${pet.name}"/>
+        <td align="center" th:text="${pet.birthDate}"/>
+        <td align="center" th:text="${pet.type}"/>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

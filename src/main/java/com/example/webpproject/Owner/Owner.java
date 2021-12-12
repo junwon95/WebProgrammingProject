@@ -16,6 +16,9 @@ import java.util.*;
 @Table(name = "owners")
 public class Owner extends NamedEntity {
 
+    @Column(name = "member_id")
+    private Integer memberId;
+
     // EAGERLY FETCH PETS
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner", fetch = FetchType.EAGER)
     private Set<Pet> pets;

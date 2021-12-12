@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -72,8 +74,7 @@ class VetController {
         Vet vet = vetRepository.findByMemberId(member.getId());
 
         Collection<Visit> visits = visitRepository.findByVetId(vet.getId());
-
-        Collection<ScheduleDto> schedules = null;
+        List<ScheduleDto> schedules = new ArrayList<ScheduleDto>();
         for(Visit visit : visits){
             Integer petId = visit.getPetId();
             Pet pet = petRepository.findPetById(petId);

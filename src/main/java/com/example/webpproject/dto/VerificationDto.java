@@ -17,6 +17,8 @@ public class VerificationDto {
 
 	private String password;
 
+	private String name;
+
 	private String email;
 
 	private Roles role;

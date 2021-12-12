@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org">
+<head th:replace="~{layout/layout :: layout (~{::body})}">
+</head>
+<body>
+
+<h2>펫 추가</h2>
+
+<form th:action="@{/pets/new}" method="post">
+    <div class="container" th:object="${pet}">
+        <label><b>애완동물 이름:</b></label><br>
+        <input type="text" th:field="*{name}" required/><br>
+        <label><b>생년월일:</b></label><br>
+        <input type="date" th:field="*{birthDate}" required/><br><br>
+        <b>종류:</b><br>
+        <input type="select" name="type" th:field="*{type}" required><br>
+
+        <button type="submit">등록</button><br>
+
+    </div>
+</form>
+
+</body>
+</html>

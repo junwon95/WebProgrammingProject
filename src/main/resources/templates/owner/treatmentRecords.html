@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org">
+<head th:replace="~{layout/layout :: layout (~{::body})}">
+</head>
+<body>
+
+<h2>진료 기록</h2>
+
+<table width="300px" th:object="${treatments}">
+  <thead>
+  <tr>
+    <th>애완동물 </th>
+    <th>보호자 </th>
+    <th>담당 의사 </th>
+    <th>진료 내용 </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="treatment : ${treatments}">
+    <td align="center" th:text="${treatment.petName}"/>
+    <td align="center" th:text="${treatment.ownerName}"/>
+    <td align="center" th:text="${treatment.vetName}"/>
+    <td align="center" th:text="${treatment.description}"/>
+
+  </tr>
+  </tbody>
+  <nav class="text-center" style="padding-top:30px">
+    <ul class="pagination">
+      <li>
+        <a href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li><a href="#">1</a></li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li>
+        <a href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</table>
+
+</body>
+</html>

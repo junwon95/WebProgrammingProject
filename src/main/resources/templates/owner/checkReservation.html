@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org">
+<head th:replace="~{layout/layout :: layout (~{::body})}">
+</head>
+<body>
+
+<h2>예약 조회</h2>
+
+<table width="300px" th:object="${reservations}">
+    <thead>
+    <tr>
+        <th>애완동물 </th>
+        <th>보호자 </th>
+        <th>예약일 </th>
+        <th>예약 취소 </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each = "visit : ${reservations}">
+        <td align="center" th:text="${visit.getPetId()}"/>
+        <td align="center" th:text="${owner.getName()}"/>
+        <td align="center" th:text="${visit.getDate()}"/>
+        <td align="center" th:text="${visit.getDescription()}"/>
+    </tr>
+    </tbody>
+    <nav class="text-center" style="padding-top:30px">
+        <ul class="pagination">
+            <li>
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li>
+                <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</table>
+
+</body>
+</html>

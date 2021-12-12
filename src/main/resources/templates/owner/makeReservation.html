@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org">
+<head th:replace="~{layout/layout :: layout (~{::body})}">
+</head>
+<body>
+
+<h2>진료 예약</h2>
+
+<form th:action="@{/makeReservation}" th:object="${visit}" method="post">
+    <div class="container">
+        <label><b>이름:</b></label>
+        <input type="text" name="ownerName" required><br>
+
+        <label><b>애완동물 이름:</b></label>
+        <select th:field="*{petId}" required>
+            <option th:each="item : ${pets}" th:value="${item.id}" th:text="${item.name}"></option>
+        </select><br>
+
+        <label><b>희망 수의사:</b></label>
+        <select th:field="*{vetId}" required>
+            <option th:each="item : ${vets}" th:value="${item.id}" th:text="${item.name}"></option>
+        </select>
+        <br><br>
+        <label><b>희망하는 시간과 진료 내용을 간략하게 적어주세요:</b></label><br>
+        <input type="date" rows="10" name="contents" th:field="*{date}" required><br>
+
+        <input type="textarea" rows="10" name="contents" th:field="*{description}" required><br>
+
+        <button type="submit">예약하기</button><br>
+
+    </div>
+</form>
+
+</body>
+</html>

@@ -15,9 +15,8 @@ public class Treatment extends BaseEntity {
     @JoinColumn(name = "visit_id")
     private Visit visit;
 
-    @ManyToOne
-    @JoinColumn(name = "vet_id")
-    private Vet vet;
+    @Column(name = "vet_id")
+    private Integer vetId;
 
     @Column(name = "description")
     private String description;
