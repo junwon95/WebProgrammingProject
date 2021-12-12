@@ -1,0 +1,80 @@
+/*main.css*/
+<style>
+    body {
+        font-family: 'NanumSquareRound';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff')
+    }
+    h2 {
+        padding: 10px 40px;
+        font-size: 40px;
+    }
+    table {
+        width: 80%;
+    //border-top:  2px solid #ccc;
+        border-collapse: collapse;
+        padding: 10px;
+        margin-left: 50px;
+    //text-align: center;
+    }
+    th, td {
+        border-bottom: 2px solid #ccc;
+    //border-left: 2px solid #ccc;
+        padding: 10px;
+    }
+    td {
+        background-color: whitesmoke;
+    }
+    th:first-child, td:first-child {
+        border-left: none;
+    }
+    input[type=text], input[type=password], input[type=textarea] {
+        width: 20%;
+        padding: 12px 20px;
+        margin: 6px 0;
+        display: inline-block;
+        border-bottom: 2px solid #ccc;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        box-sizing: border-box;
+    }
+    button[type="submit"] {
+        background-color: lightseagreen;
+        color: whitesmoke;
+        font-size: 16px;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 10%;
+        border-radius: 10px;
+    }
+    button:hover {
+        opacity: 0.8;
+    }
+    nav {
+        margin-left: 680px;
+    }
+    .pagination {
+        display:inline-block;
+        list-style: none;
+    }
+    .pagination li {
+        display: inline;
+        text-align: center;
+    }
+    .pagination a {
+        float: left;
+        display: block;
+        font-size: 14px;
+        padding: 5px 12px;
+        color: black;
+        line-height: 1.5;
+    }
+    .pagination a:hover {
+        opacity: 0.8;
+    }
+    .container {
+        padding: 30px 60px;
+    }
+</style>

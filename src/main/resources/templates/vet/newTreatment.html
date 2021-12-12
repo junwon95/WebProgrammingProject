@@ -10,7 +10,10 @@
 <form th:action="@{/treatment/new}" method="post">
     <div class="container" th:object="${treatment}">
         <input type="text" name="description" th:field="*{description}" required><br>
-
+        <form id="add" th:action="@{/addSummary}" method="post" th:object="${visit}">
+            <input id="visitId" th:field="*{id}" type="hidden"/>
+            <button type="submit" value="save">등록</button>
+        </form>
     </div>
 </form>
 

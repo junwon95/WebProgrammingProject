@@ -124,7 +124,6 @@
 </style>
 
 <ul>
-
     <li class="img"><a href="/" class="shortcut"><img src="/favicon.png" width="109px" height="109px"/></a></li>
     <li><a href="/vetsInfo" class="menu">의료진 보기</a></li>
     <div sec:authorize="hasRole('USER')">
@@ -146,18 +145,23 @@
     </div>
 
     <div sec:authorize="${!isAuthenticated()}" style="float:right;">
-        <form method="GET" th:action="@{/signin}">
-            <button type="submit" class="styled">로그인</button>
-        </form>
-        <form method="GET" th:action="@{/register}">
-            <button type="submit" class="styled">회원가입</button>
-        </form>
+        <li>
+            <form method="GET" th:action="@{/signin}">
+                <button type="submit" class="styled">로그인</button>
+            </form>
+            <form method="GET" th:action="@{/register}">
+                <button type="submit" class="styled">회원가입</button>
+            </form>
+        </li>
     </div>
 
     <div sec:authorize="${isAuthenticated()}">
-        <form method="POST" th:action="@{/logout}">
-            <button type="submit" class="styled">로그아웃</button>
-        </form>
+        <li>
+            <form method="POST" th:action="@{/logout}">
+                <button type="submit" class="styled">로그아웃</button>
+            </form>
+
+        </li>
 <!--            <form method="GET" th:action="@{/profile}">-->
 <!--                <button type="submit" class="styled">Profile</button>-->
 <!--            </form>-->
