@@ -1,5 +1,6 @@
 package com.example.webpproject.security;
 
+import com.example.webpproject.model.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -11,11 +12,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "members")
 @ToString
-public class Member {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+public class Member extends BaseEntity {
 
 	@Column(name = "username", unique = true)
 	private String username;

@@ -108,17 +108,18 @@ public class SecurityController {
         Member member = verificationDto.getMember();
 
         if (verificationCode.equals(verificationDto.getInputCode())) {
+            // for already entered members;
             memberRepository.save(member);
             if (member.getRole() == Roles.USER) {
                 Owner owner = new Owner();
-                owner.setId(member.getId());
+                owner.setId(member.getId()+4);
                 ownerRepository.save(owner);
             } else {
                 Vet vet = new Vet();
-                vet.setId(member.getId());
+                vet.setId(member.getId()+4);
                 vetRepository.save(vet);
             }
-            return "redirect:";
+            return "redirect:/";
         } else {
             return "redirect:/register";
         }

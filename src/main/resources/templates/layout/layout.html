@@ -96,32 +96,95 @@
         color:red;
     }
     body {
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: 'NanumSquareRound';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff')
     }
-    input[type=text], input[type=password] {
-        width: 25%;
+    h2 {
+        padding: 10px 40px;
+        font-size: 40px;
+    }
+    table {
+        width: 80%;
+    //border-top:  2px solid #ccc;
+        border-collapse: collapse;
+        padding: 10px;
+        margin-left: 50px;
+    //text-align: center;
+    }
+    th, td {
+        border-bottom: 2px solid #ccc;
+    //border-left: 2px solid #ccc;
+        padding: 10px;
+    }
+    td {
+        background-color: whitesmoke;
+    }
+    th:first-child, td:first-child {
+        border-left: none;
+    }
+    input[type=text], input[type=password], input[type=textarea] {
+        width: 20%;
         padding: 12px 20px;
-        margin: 8px 0;
+        margin: 6px 0;
         display: inline-block;
-        border: 1px solid #ccc;
+        border-bottom: 2px solid #ccc;
+        border-top: none;
+        border-left: none;
+        border-right: none;
         box-sizing: border-box;
     }
+    input[type=date], input[type=select] {
+        padding: 5px;
+        margin: 15px;
+        font-family: 'NanumSquareRound';
+    }
+    select {
+        margin: 10px;
+        font-family: 'NanumSquareRound';
+        height : 20px;
+    }
     button {
-        background-color: #04AA6D;
-        color: white;
+        background-color: lightseagreen;
+        color: whitesmoke;
+        font-size: 16px;
         padding: 14px 20px;
         margin: 8px 0;
         border: none;
         cursor: pointer;
-        width: 25%;
+        width: 10%;
+        border-radius: 10px;
+        font-family: 'NanumSquareRound';
     }
     button:hover {
         opacity: 0.8;
     }
+    nav {
+        margin-left: 680px;
+    }
+    .pagination {
+        display:inline-block;
+        list-style: none;
+    }
+    .pagination li {
+        display: inline;
+        text-align: center;
+    }
+    .pagination a {
+        float: left;
+        display: block;
+        font-size: 14px;
+        padding: 5px 12px;
+        color: black;
+        line-height: 1.5;
+    }
+    .pagination a:hover {
+        opacity: 0.8;
+    }
     .container {
-        padding: 16px;
+        padding: 30px 60px;
     }
 </style>
+
 
 <ul>
     <li class="img"><a href="/" class="shortcut"><img src="/favicon.png" width="109px" height="109px"/></a></li>

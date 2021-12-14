@@ -46,7 +46,13 @@ class VetController {
     public String vetsInfoForm(Map<String, Object> model) {
 
         Collection<Vet> results = this.vetRepository.findAll();
-        model.put("vets", results);
+        List<Vet> vets = new ArrayList<>();
+        for(Vet vet : results){
+            if(vet.getName() != null){
+                vets.add(vet);
+            }
+        }
+        model.put("vets", vets);
         return "vetsInfo";
     }
 
@@ -134,5 +140,7 @@ class VetController {
 
         return "redirect:vet/newTreatment";
     }
+
+
 
 }
