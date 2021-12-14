@@ -19,15 +19,16 @@
     <label><b>전문 분야</b></label>
     <td th:text="*{specialty.getName()}"></td>
 
-    <h2>소개글</h2>
-    <textarea th:text="*{description}"></textarea>
-    <br>
+
+    <form th:action="@{/profile}" method="post">
+        <h2>소개글</h2>
+        <input type="textarea" th:value="*{description}" th:field="*{description}">
+        <br>
+        <button type="submit" width="150">소개글 변경</button>
+        <br>
+    </form>
 </div>
-<form th:object="${member}" th:action="@{/changePassword}" method="get">
-    <input type="hidden" class="form-control" th:field="*{username}"/>
-    <button type="submit" width="150">소개글 변경</button>
-    <br>
-</form>
+
 
 </body>
 </html>

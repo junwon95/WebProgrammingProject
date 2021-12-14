@@ -45,11 +45,17 @@ class OwnerController {
         Owner owner = ownerRepository.findByMemberId(member.getId());
         Collection<Pet> pets = petRepository.findPetsByOwnerId(owner.getId());
 
-        List<Visit> reservations = new ArrayList<>();
+        List<ReservationDto> reservations = new ArrayList<>();
         for (Pet pet : pets) {
             List<Visit> visits = visitRepository.findVisitsByPetId(pet.getId());
             for (Visit visit : visits){
-                if(!visit.isTreated()) reservations.add(visit);
+                if(!visit.isTreated()) {
+                    ReservationDto reservationDto = new ReservationDto();
+                    reservationDto.setPetName(pet.getName());
+                    reservationDto.setDate(visit.getDate());
+                    reservationDto.setDescription(visit.getDescription());
+                    reservations.add(reservationDto);
+                }
             }
         }
         model.put("owner",owner);

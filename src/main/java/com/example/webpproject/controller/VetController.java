@@ -60,23 +60,30 @@ class VetController {
     public String profileForm(Map<String, Object> model) {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        // petclinic member
-        if (principal instanceof UserDetails) {
-            String username = ((UserDetails) principal).getUsername();
-            Member member = memberRepository.findByUsername(username);
+        String username = ((UserDetails) principal).getUsername();
+        Member member = memberRepository.findByUsername(username);
 
-            Vet vet = vetRepository.findByMemberId(member.getId());
-            model.put("member", member);
-            model.put("vet", vet);
+        Vet vet = vetRepository.findByMemberId(member.getId());
+        model.put("member", member);
+        model.put("vet", vet);
 
-            return "security/profile";
-        }
-        // OAUTH member
-        else {
-            // TODO: link OAUTH with Members
-            // redirect to custom
-            return "redirect:";
-        }
+        return "security/profile";
+
+    }
+    @PostMapping("/profile")
+    public String profileChangeForm(Map<String, Object> model, Vet vet) {
+        vetRepository.save(vet);
+
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        String username = ((UserDetails) principal).getUsername();
+        Member member = memberRepository.findByUsername(username);
+
+        Vet vet2 = vetRepository.findByMemberId(member.getId());
+        model.put("member", member);
+        model.put("vet", vet2);
+
+        return "security/profile";
     }
 
     @GetMapping("/schedule")
