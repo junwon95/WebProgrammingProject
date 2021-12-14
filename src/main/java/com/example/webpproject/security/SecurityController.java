@@ -11,6 +11,8 @@ import com.example.webpproject.model.VetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -186,7 +188,9 @@ public class SecurityController {
         String password = passwordDto.getPassword();
         String newPassword = passwordDto.getNewPassword();
 
-        Member member = memberRepository.findByUsername(username);
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username2 = ((UserDetails) principal).getUsername();
+        Member member = memberRepository.findByUsername(username2);
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
         if (StringUtils.hasLength(password) && !bCryptPasswordEncoder.matches(password, member.getPassword())) {
@@ -199,7 +203,7 @@ public class SecurityController {
 
         memberRepository.changePassword(bCryptPasswordEncoder.encode(newPassword), member.getId());
         model.put("member", member);
-        return "security/profile";
+        return "redirect:/";
     }
 
 }
