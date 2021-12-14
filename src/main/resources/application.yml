@@ -3,7 +3,7 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username: ssmmttpp123@gmail.com
+    username: webproject2021smtp@gmail.com
     password: smtponly123
     properties:
       mail:
